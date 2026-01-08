@@ -19,7 +19,7 @@ class Agent:
         try:
             # Using Gemini chat completions
             response = genai.chat.completions.create(
-                model="gemini-2.0-flash",
+                model="gemini-2.5-flash",
                 messages=[
                     {"role": "system", "content": sys_prompt},
                     {"role": self.recipient, "content": user_query}
