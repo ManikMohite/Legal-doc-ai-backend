@@ -211,7 +211,7 @@ def classify_document():
 
     try:
         if api_key:
-            model = genai.GenerativeModel("gemini-2.0-flash")
+            model = genai.GenerativeModel("gemini-2.5-flash")
             response = model.generate_content([
                 "You are a document classification agent. Classify the document into one of these categories: Legal Notice, Ownership Documents, Contracts & Agreements, Financial Documents, Terms & Conditions / Privacy Policies, Intellectual Property Documents, Criminal Offense Documents, Regulatory Compliance Documents, Employment Documents, Court Judgments & Legal Precedents.",
                 document_text[:3000]
@@ -251,7 +251,7 @@ def process_document():
 
     try:
         if api_key:
-            model = genai.GenerativeModel("gemini-2.0-flash")
+            model = genai.GenerativeModel("gemini-2.5-flash")
             response = model.generate_content([prompt, document_text[:4000]])
             summary = response.text.strip()
         else:
@@ -327,7 +327,7 @@ Answer clearly. Use **bold** for important points.
 
         # ---------------- GENERATE RESPONSE ----------------
         if api_key:
-            model = genai.GenerativeModel("gemini-2.0-flash")
+            model = genai.GenerativeModel("gemini-2.5-flash")
             response = model.generate_content([system_prompt, user_message])
             bot_response = response.text.strip()
         else:
@@ -378,7 +378,7 @@ def general_chat_api():
                 "Provide concise, clear answers with **bold** important points."
             )
             if api_key:
-                model = genai.GenerativeModel("gemini-2.0-flash")
+                model = genai.GenerativeModel("gemini-2.5-flash")
                 response = model.generate_content([system_prompt, user_message])
                 bot_response = response.text.strip()
             else:
@@ -406,7 +406,7 @@ Format: header, date, salutation, body, closing, signature as per professional s
 
     try:
         if api_key:
-            model = genai.GenerativeModel("gemini-2.0-flash")
+            model = genai.GenerativeModel("gemini-2.5-flash")
             response = model.generate_content([prompt, message])
             draft_content = response.text.strip()
         else:
